@@ -1,0 +1,110 @@
+/* ── Variables Exhelia ── */
+:root {
+  --green:        #4ab840;
+  --green-dark:   #318a20;
+  --green-light:  #e8f7e5;
+  --navy:         #1a2332;
+  --navy-light:   #243347;
+  --navy-lighter: #2e3f58;
+  --gray:         #4a4a4a;
+  --gray-light:   #f7f6f4;
+  --warm:         #f4f1ed;
+  --white:        #ffffff;
+  --gold:         #D4A843;
+  --danger:       #e74c3c;
+  --warning:      #f39c12;
+  --sidebar-w:    240px;
+  --titlebar-h:   38px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body, #root {
+  height: 100%;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--gray);
+  background: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+}
+
+/* Scrollbar custom */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.5; }
+}
+
+.anim-fade-up { animation: fadeUp 0.35s ease both; }
+.anim-fade-in { animation: fadeIn 0.25s ease both; }
+
+/* Boutons */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 18px; border-radius: 8px; border: none;
+  font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 500;
+  cursor: pointer; transition: all 0.18s; white-space: nowrap;
+}
+.btn-primary { background: var(--green); color: #fff; }
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(74,184,64,0.35); }
+.btn-secondary { background: rgba(255,255,255,0.08); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+.btn-secondary:hover { background: rgba(255,255,255,0.14); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-danger:hover { background: #c0392b; }
+.btn-sm { padding: 6px 12px; font-size: 0.8rem; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none !important; }
+
+/* Badges statut */
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 10px; border-radius: 20px;
+  font-size: 0.75rem; font-weight: 500;
+}
+.badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.badge-planifiee  { background: rgba(212,168,67,0.15);  color: var(--gold); }
+.badge-en_cours   { background: rgba(74,184,64,0.15);   color: var(--green); }
+.badge-terminee   { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.5); }
+.badge-annulee    { background: rgba(231,76,60,0.15);   color: var(--danger); }
+
+/* Inputs */
+.input {
+  width: 100%; padding: 10px 14px; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.9rem;
+  transition: border-color 0.18s, background 0.18s;
+  outline: none;
+}
+.input::placeholder { color: rgba(255,255,255,0.3); }
+.input:focus { border-color: var(--green); background: rgba(255,255,255,0.09); }
+.input-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 6px; display: block; }
+
+/* Cards */
+.card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; padding: 20px;
+}
+
+/* Loader */
+.loader {
+  display: inline-block; width: 20px; height: 20px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-top-color: var(--green);
+  border-radius: 50%; animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
